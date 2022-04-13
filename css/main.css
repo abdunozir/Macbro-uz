@@ -351,7 +351,6 @@ template {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  height: 100vh;
   margin-top: 20px;
 }
 
@@ -565,6 +564,7 @@ template {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  overflow: hidden;
 }
 
 .slider_container1 {
@@ -579,7 +579,6 @@ template {
   -webkit-box-pack: start;
       -ms-flex-pack: start;
           justify-content: flex-start;
-  overflow: hidden;
   margin-top: 0px;
 }
 
@@ -1066,7 +1065,6 @@ template {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    margin-top: 320px;
   }
   .hero__options {
     width: 90%;
@@ -1074,7 +1072,6 @@ template {
   }
   .hero__slider {
     width: 90%;
-    margin-top: 400px;
   }
   .hero-slider__buttons {
     width: 100%;
@@ -1167,5 +1164,93 @@ template {
   .hero-option__price-counter .hero_price-counter input {
     width: 40%;
   }
+}
+
+.turlari_containeri {
+  max-width: 1400px;
+  width: 100%;
+  margin: 0 auto;
+  bottom: 0;
+}
+
+.turlari_btns {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #f5f5f7;
+  position: relative;
+  margin: 40px 0;
+  gap: 20px;
+}
+
+.turlari_btns button {
+  width: 50%;
+  outline: none;
+  border: none;
+  padding: 10px 0;
+  border-radius: 10px;
+}
+
+.turlari_btns button:active {
+  background-color: #fff;
+  color: black;
+}
+
+.turlari_btns button p {
+  text-transform: none;
+  font-size: 16px;
+  line-height: 28px;
+  margin: 0;
+}
+
+.hususiyati {
+  background-color: yellow;
+}
+
+.turlari_text p {
+  font-size: 16px;
+  line-height: 24px;
+}
+
+.related_products_slider_container {
+  width: 900px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0 auto;
+}
+
+.related_prodacts_list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  gap: 20px;
+}
+
+.related_product_card {
+  width: 300px;
+}
+
+.related_product_card img {
+  width: 100%;
 }
 /*# sourceMappingURL=main.css.map */

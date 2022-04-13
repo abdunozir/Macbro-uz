@@ -2,7 +2,9 @@
 
 let hero_ram_option = document.querySelector('.hero-ram_option');
 let hero_storage_option = document.querySelector('.hero-storage_option');
-
+let total_price = document.querySelector('.total_price');
+let Product_count = document.querySelector('.Product_count');
+let product_count_add = 1;
 let ramButtons = ``;
 
 function fristLoopram() {
@@ -38,6 +40,8 @@ ram_btn.forEach((item) => {
         document
           .querySelector('.ram' + e.currentTarget.classList[0])
           .classList.add('ram-btn-style');
+        product_count_add = 1;
+        Product_count.innerHTML = product_count_add;
       } else {
         macObj.ram[i].active = false;
       }
@@ -94,6 +98,8 @@ function storageClick(e) {
           item.memory[+e.currentTarget.classList[0] - 1].size === storage.size
         ) {
           storage.active = true;
+          product_count_add = 1;
+          Product_count.innerHTML = product_count_add;
         } else {
           storage.active = false;
         }
@@ -126,7 +132,6 @@ function storageAddClass(e) {
 function productPrice() {
   macObj.ram.forEach((item) => {
     if (item.active == true) {
-      console.log(item);
       item.memory.forEach((el) => {
         if (el.active == true) {
           document.querySelector('.total_price').innerHTML =
@@ -141,33 +146,48 @@ function productPrice() {
 }
 
 productPrice();
+let p = null;
+let product_price = null;
+function countAdd() {
+  macObj.ram.forEach((item) => {
+    if (item.active) {
+      item.memory.forEach((el) => {
+        if (el.active) {
+          product_price = el.price;
+          total_price.innerHTML = el.price;
+          p = el.price;
 
-let Product_count = document.querySelector('.Product_count');
-let newPrice = document.querySelector('.total_price').innerHTML.split(',');
-newPrice = newPrice.join('');
-let product_count_add = 1;
-console.log(newPrice);
+          console.log(el.price);
+        }
+      });
+    }
+  });
+}
+countAdd();
+
 function dec() {
-  if (product_count_add >= 1) {
-    Product_count.innerHTML = product_count_add;
-    newPrice = +newPrice / product_count_add;
-    document.querySelector('.total_price').innerHTML =
-      newPrice.toLocaleString();
+  if (product_count_add > 1) {
+    console.log(p, 'dawd');
+
+    if (p - product_price > 0) {
+      p = p - product_price;
+    }
     product_count_add--;
+    Product_count.innerHTML = product_count_add;
+    total_price.innerHTML = p;
   }
 }
-
 function inc() {
   if (product_count_add <= 100) {
+    countAdd();
+
+    for (let i = 1; i <= product_count_add; i++) {
+      p += product_price;
+    }
+    console.log(p, 'dawd');
+    total_price.innerHTML = p;
     product_count_add++;
     Product_count.innerHTML = product_count_add;
-    newPrice = +newPrice * product_count_add;
-    document.querySelector('.total_price').innerHTML =
-      newPrice.toLocaleString();
-  }
-
-  if (product_count_add < 0) {
-    product_count_add = 1;
   }
 }
 Product_count.innerHTML = product_count_add;
@@ -178,7 +198,6 @@ let colored_btns = '';
 let btn_count = 0;
 macObj.colors.forEach((item) => {
   btn_count++;
-  console.log(item);
   if (item.active == true) {
     colored_btns += `
   <button type="button " class="${item.id} colors-btn-style tilla color_btn hero_color-btn">
@@ -235,7 +254,6 @@ function slider__img_call() {
   img_count = 0;
   macObj.colors.forEach((item) => {
     if (item.active == true) {
-      console.log('tick');
       item.img.forEach((img) => {
         img_count++;
         img_container += `<div onclick="slidermove(event)" class="${img_count} id${img_count} hero-slider_btn ">
@@ -261,7 +279,6 @@ slider__img_call();
 
 // onclick slider to move
 function slidermove(e) {
-  console.log(e.currentTarget.classList[0]);
   if (document.querySelector('.hero-selected_slider-option')) {
     document
       .querySelector('.hero-selected_slider-option')
@@ -306,7 +323,6 @@ function slider__img_call1() {
       });
     }
   });
-  console.log(img_container1);
   hero_slider_buttons__wrapper_modal.innerHTML = img_container1;
   slide1.innerHTML = slider_img1;
 }
@@ -336,3 +352,16 @@ function closeModal() {
 function openModal() {
   document.querySelector('.slider_hero_modal').style.display = 'flex';
 }
+
+// related products
+let related_prodacts_list = document.querySelector('.related_prodacts_list');
+let products_card = '';
+
+products_card = macObj.colors.map((el) => {
+  return `<div class="related_product_card">
+    <img src="${el.img[0]}" alt="">
+  </div>`;
+});
+
+console.log(products_card);
+related_prodacts_list.innerHTML = products_card.join('');
