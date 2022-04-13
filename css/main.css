@@ -397,10 +397,62 @@ template {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  position: relative;
+}
+
+.fullscreen {
+  position: absolute;
+  right: 20px;
+  top: 60%;
+  font-size: 30px;
+  background-color: transparent;
+  cursor: pointer;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.fullscreen:hover i {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+  -webkit-box-shadow: 0 0 3px 1px grey;
+          box-shadow: 0 0 3px 1px grey;
+  background-color: transparent;
+}
+
+.slider_container {
+  width: 400px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: left;
+      -ms-flex-pack: left;
+          justify-content: left;
+  overflow: hidden;
+}
+
+.slide {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  height: 100%;
+  padding: 5px;
+  -webkit-transition: 0.5s;
+  transition: 0.5s;
+  margin-left: 10px;
 }
 
 .hero-slider__img {
-  width: 100%;
+  width: 300px;
+  height: 80%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -410,10 +462,11 @@ template {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+  margin: 30px;
 }
 
 .hero-slider__img img {
-  width: 400px;
+  width: 100%;
 }
 
 .hero-slider__buttons {
@@ -446,6 +499,8 @@ template {
 .hero-slider_btn {
   width: 80px;
   height: 80px;
+  padding: 4px;
+  margin: 2px;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -455,16 +510,18 @@ template {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  border: 2px solid white;
+  border: 2px solid #fff;
   border-radius: 10px;
-  padding: 4px;
-  margin: 2px;
   cursor: pointer;
 }
 
+.hero-slider_btn:hover {
+  border: 2px solid #1d1d1d;
+}
+
 .hero-slider_btn img {
-  width: 88px;
-  height: 88px;
+  width: 100%;
+  height: 100%;
   -o-object-fit: cover;
      object-fit: cover;
 }
@@ -472,6 +529,154 @@ template {
 .hero-selected_slider-option {
   border: 2px solid #1d1d1d;
   border-radius: 10px;
+}
+
+.slider_hero_modal {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  background-color: #fff;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  display: none;
+}
+
+.hero-slider__wrapper1 {
+  width: 70%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.slider_container1 {
+  width: 700px;
+  height: 600px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  overflow: hidden;
+  margin-top: 0px;
+}
+
+.slide1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-left: 70px;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+}
+
+.slide1 .hero-slider__img1 {
+  width: 600px;
+  height: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin: 0;
+}
+
+.slide1 .hero-slider__img1 img {
+  width: 60%;
+  height: 70%;
+}
+
+.hero-slider__buttons1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-top: 10px;
+}
+
+.hero_slider-buttons__wrapper1 {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.hero-slider_btn1 {
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+  border: 2px solid #fff;
+  padding: 5px;
+}
+
+.hero-slider_btn1:hover {
+  border: 2px solid #1d1d1d;
+  border-radius: 5px;
+}
+
+.hero-slider_btn1 img {
+  width: 100%;
+  height: 100%;
+}
+
+.hero-selected_slider-option1 {
+  border: 2px solid #1d1d1d;
+  border-radius: 5px;
+}
+
+.fullscreen1 {
+  position: absolute;
+  right: 10%;
+  bottom: 10%;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.fullscreen1 i:hover {
+  -webkit-box-shadow: 1px 2px 3px 1px grey;
+          box-shadow: 1px 2px 3px 1px grey;
 }
 
 .hero__options {
@@ -584,6 +789,8 @@ template {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -641,7 +848,7 @@ template {
   margin: 0;
 }
 
-.hero_storage-btn1 {
+.hero_storage-btn_style {
   border: 2px solid #06c;
 }
 
@@ -650,6 +857,8 @@ template {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -696,7 +905,7 @@ template {
 .hero_color-btn {
   width: 45%;
   padding: 10px 10px;
-  border: 1px solid #888;
+  border: 2px solid #888;
   border-radius: 12px;
   background: transparent;
   outline: 0;
@@ -716,6 +925,10 @@ template {
       -ms-flex-pack: center;
           justify-content: center;
   gap: 5px;
+}
+
+.hero_color-btn:hover {
+  border: 2px solid #06c;
 }
 
 .hero_color-btn .color1 {
@@ -753,6 +966,10 @@ template {
   margin: 0;
 }
 
+.colors-btn-style {
+  border: 2px solid #06c;
+}
+
 .hero-option__price-counter {
   width: 100%;
   display: -webkit-box;
@@ -779,12 +996,15 @@ template {
           justify-content: center;
 }
 
-.hero_price-counter input {
+.hero_price-counter p {
   width: 50%;
   outline: 0;
   border: 1px solid #d6d6d6;
   text-align: center;
-  padding: 10px;
+  padding: 4px;
+  border-left: none;
+  border-right: none;
+  margin: 0;
 }
 
 .hero_price-counter button {
@@ -887,12 +1107,12 @@ template {
     -webkit-box-align: center;
         -ms-flex-align: center;
             align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
   }
   .hero-ram_option button {
-    width: 50% !important;
+    width: 40% !important;
   }
   .hero-storage_option {
     display: -webkit-box;
