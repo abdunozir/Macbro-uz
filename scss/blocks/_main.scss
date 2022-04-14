@@ -35,9 +35,50 @@
 }
 
 .hususiyati {
-  background-color: yellow;
+  background-color: #ececec;
+  margin: 5px auto;
 }
-
+.hususiyati_btn{
+  background-color: #fff;
+}
+.tahlil {
+  margin-left: 10px;
+}
+.tex {
+  display: none;
+  font-weight: 400;
+  margin-left: 10px;
+  font-size: 16px;
+}
+.related_product_container {
+  position: relative;
+}
+.slider_left {
+  position: absolute;
+  top: 50%;
+  left: 8%;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #ececec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+}
+.slider_right {
+  position: absolute;
+  top: 50%;
+  right: 8%;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background-color: #ececec;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+}
 .turlari_text {
   p {
     font-size: 16px;
@@ -45,22 +86,96 @@
   }
 }
 .related_products_slider_container {
-  width: 900px;
+  max-width: 1000px;
+  width: 100%;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   margin: 0 auto;
+  overflow: hidden;
+  transition: all 0.5s;
 }
 .related_prodacts_list {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 20px;
+  gap: 40px;
+  height: 500px;
+  transition: 0.5s;
 }
 
 .related_product_card {
   width: 300px;
+}
+.card_img {
+  width: 300px;
+  height: 300px;
   img {
     width: 100%;
+    height: 100%;
+  }
+}
+.card_body {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-top: 20px;
+  a {
+    font-size: 17px;
+    font-weight: 500;
+    line-height: 25px;
+    text-decoration: none;
+    color: black;
+  }
+  p {
+    margin-top: 8px;
+    font-size: 17px;
+    line-height: 26px;
+    color: #333;
+  }
+}
+
+@media (max-width: 1200px) {
+  .related_products_slider_container {
+    width: 650px;
+  }
+  .related_prodacts_list {
+    transform: translateX(20px);
+  }
+
+  .footer_left {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px !important;
+  }
+  .footer_right {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 40px !important;
+  }
+}
+@media (max-width: 890px) {
+  .related_products_slider_container {
+    width: 340px;
+  }
+  .related_prodacts_list {
+    transform: translateX(15px);
+  }
+}
+
+@media (max-width: 600px) {
+  .related_prodacts_list {
+    transform: translateX(24px);
+  }
+
+  .slider_left {
+    left: 0;
+  }
+  .slider_right {
+    right: 0;
   }
 }

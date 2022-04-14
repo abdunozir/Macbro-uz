@@ -168,11 +168,13 @@
       <section id="turlari11">
         <div class="turlari_containeri">
           <div class="turlari_btns">
-            <button><p>Tahlil</p></button>
-            <button class="hususiyati"><p>Texnik xususiyatlar</p></button>
+            <button onclick="tah(event)" class="hususiyati"><p>Tahlil</p></button>
+            <button onclick="tex(event)" class="hususiyati hususiyati1">
+              <p>Texnik xususiyatlar</p>
+            </button>
           </div>
           <div class="turlari_text">
-            <p>
+            <p class="tahlil">
               ekran: 13,3 "(2560x1600)
               <br />
               matritsa: IPS
@@ -192,6 +194,16 @@
               <br />
               Og’irligi: 1,4 kg
             </p>
+            <p class="tex">
+              Eng ingichka va yengil Apple noutbuki endi M1 chipi tufayli yanada
+              kuchliroq ishlaydi. 8 yadroli protsessor sizning vazifalaringizni
+              katta tezlik blan amalga oshiradi. 8 yadroli GPU-ning to'liq
+              quvvatidan foydalanib, grafikani talab qiladigan dasturlar va
+              o'yinlarning keyingi darajasiga chiqing. Mashinani o'rganish uchun
+              16 yadroli Neural Engine yordamida operatsiyalarini tezlashtiradi
+              va 18 soatgacha zaryad olmasdan ishlaydi. MacBook Air hali ham
+              ixcham, lekin hozir u ancha kuchliroq.
+            </p>
           </div>
         </div>
       </section>
@@ -202,15 +214,67 @@
           </div>
 
           <div class="related_products_slider_container">
-            <div class="related_prodacts_list">
-              <div class="related_product_card">
-                <img src="" alt="">
-              </div>
-            </div>
+            <div class="related_prodacts_list"></div>
           </div>
+          <span class="slider_left" onclick="left_click_slider()"
+            ><i class="bx bx-chevron-left"></i
+          ></span>
+          <span class="slider_right" onclick="right_click_slider(event)"
+            ><i class="bx bxs-chevron-right"></i
+          ></span>
         </div>
       </section>
     </main>
+
+    <section id="footer">
+      <div class="footer_container container">
+        <div class="footer_left">
+          <div class="footer_left_one">
+            <h6>Sotib ol</h6>
+            <ul>
+              <li><a href="#">Mac</a></li>
+              <li><a href="#">iPad</a></li>
+              <li><a href="#">iPhone</a></li>
+            </ul>
+          </div>
+          <div class="footer_left_two">
+            <h6>Kompaniya</h6>
+            <ul>
+              <li><a href="#">Yangiliklar</a></li>
+              <li><a href="#">Kompaniya haqida</a></li>
+              <li><a href="#">Do'kon manzillari</a></li>
+              <li><a href="#">Biznes uchun</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer_right">
+          <div class="footer_right_one">
+            <h6>Ma'lumot</h6>
+            <ul>
+              <li><a href="#">Muddatli to’lov </a></li>
+              <li><a href="#">Yetkazib berish</a></li>
+              <li><a href="#">Aloqa</a></li>
+            </ul>
+          </div>
+          <div class="footer_right_one">
+            <ul>
+              <li class="foote_li"><a href="#">Biz bilan bog'laning</a></li>
+              <li class="smm_icon">
+                <a href="#"><i class="bx bxl-facebook-square"></i></a>
+                <a href="#"><i class="bx bxl-instagram"></i></a>
+                <a href="#"><i class="bx bxl-telegram"></i></a>
+                <a href="#"><i class="bx bxl-tiktok"></i></a>
+              </li>
+              <li><a href="#">+998 78 777 20 20</a></li>
+              <li><a href="#">Biznes uchun</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      <p class="reserve">
+        Onlayn do'kon MacBro.uz. Barcha huquqlar himoyalangan.
+      </p>
+    </section>
     <script src="./js/objects.js"></script>
     <script src="./js/main.js"></script>
   </body>

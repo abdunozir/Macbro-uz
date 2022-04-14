@@ -287,12 +287,33 @@ function slidermove(e) {
   e.currentTarget.classList.add('hero-selected_slider-option');
   slide.style.marginLeft =
     '-' + 350 * (+e.currentTarget.classList[0] - 1) + 'px';
+
+  if (document.querySelector('.hero-slider__buttons').clientWidth == 270) {
+    if (
+      +e.currentTarget.classList[0] >= 3 &&
+      +e.currentTarget.classList[0] !== 5
+    ) {
+      document.querySelector('.hero_slider-buttons__wrapper').style.marginLeft =
+        '-' + 95 * (+e.currentTarget.classList[0] - 2) + 'px';
+    } else if (+e.currentTarget.classList[0] == 2) {
+      document.querySelector('.hero_slider-buttons__wrapper').style.marginLeft =
+        '-' + 0 + 'px';
+    } else if (+e.currentTarget.classList[0] == 1) {
+      document.querySelector('.hero_slider-buttons__wrapper').style.marginLeft =
+        95 + 'px';
+    } else if (+e.currentTarget.classList[0] == 5) {
+      document.querySelector('.hero_slider-buttons__wrapper').style.marginLeft =
+        '-' + 95 * 3 + 'px';
+    }
+  } else {
+    document.querySelector('.hero_slider-buttons__wrapper').style.marginLeft =
+      '-' + 0 + 'px';
+  }
 }
 
-// document.querySelector('.id1').classList.add('hero-selected_slider-option');
+document.querySelector('.id1').classList.add('hero-selected_slider-option');
 
 // onclick slider to move modal
-// images
 let hero_slider_buttons__wrapper_modal = document.querySelector(
   '.hero_slider-buttons__wrapper1'
 );
@@ -328,14 +349,48 @@ function slider__img_call1() {
 }
 
 slider__img_call1();
-
+// 270 hero-slider__buttons
 function slidermove1(e) {
-  console.log(e.currentTarget.classList[0]);
+  // console.log(e.currentTarget.classList[0]);
   if (document.querySelector('.hero-selected_slider-option1')) {
     document
       .querySelector('.hero-selected_slider-option1')
       .classList.remove('hero-selected_slider-option1');
   }
+  if (document.querySelector('.slider_container1').clientWidth)
+    e.currentTarget.classList.add('hero-selected_slider-option');
+  slide1.style.marginLeft =
+    '-' + 350 * (+e.currentTarget.classList[0] - 1) + 'px';
+
+  if (document.querySelector('.hero-slider__buttons1').clientWidth == 360) {
+    if (
+      +e.currentTarget.classList[0] >= 3 &&
+      +e.currentTarget.classList[0] !== 5
+    ) {
+      document.querySelector(
+        '.hero_slider-buttons__wrapper1'
+      ).style.marginLeft =
+        '-' + 120 * (+e.currentTarget.classList[0] - 2) + 'px';
+    } else if (+e.currentTarget.classList[0] == 2) {
+      document.querySelector(
+        '.hero_slider-buttons__wrapper1'
+      ).style.marginLeft = '-' + 0 + 'px';
+      console.log('ldsad');
+    } else if (+e.currentTarget.classList[0] == 1) {
+      document.querySelector(
+        '.hero_slider-buttons__wrapper1'
+      ).style.marginLeft = 120 + 'px';
+      console.log('ldsad');
+    } else if (+e.currentTarget.classList[0] == 5) {
+      document.querySelector(
+        '.hero_slider-buttons__wrapper1'
+      ).style.marginLeft = '-' + 120 * 3 + 'px';
+    }
+  } else {
+    document.querySelector('.hero_slider-buttons__wrapper1').style.marginLeft =
+      '-' + 0 + 'px';
+  }
+
   e.currentTarget.classList.add('hero-selected_slider-option1');
   if (+e.currentTarget.classList[0] == 1) {
     slide1.style.marginLeft = 70 + 'px';
@@ -357,11 +412,102 @@ function openModal() {
 let related_prodacts_list = document.querySelector('.related_prodacts_list');
 let products_card = '';
 
-products_card = macObj.colors.map((el) => {
-  return `<div class="related_product_card">
-    <img src="${el.img[0]}" alt="">
+macObj.colors.forEach((item) => {
+  item.img.forEach((el) => {
+    products_card += `<div class="related_product_card">
+    <div class="card_img"><img src="${el}" alt=""></div>
+    <div class="card_body">
+      <a href="macbro.com">MacBOK PRO 11" WITH M1</a>
+      <p >20 000 000 so'm</p>
+    </div>
   </div>`;
+  });
 });
+let related_products_slider_container = document.querySelector(
+  '.related_products_slider_container'
+);
+related_prodacts_list.innerHTML = products_card;
+console.log(related_prodacts_list.children.length);
+let l = 0;
+console.log(related_products_slider_container.clientWidth);
 
-console.log(products_card);
-related_prodacts_list.innerHTML = products_card.join('');
+// left click btn to move slider body 650px
+function left_click_slider() {
+  if (l > 0) {
+    l--;
+    related_prodacts_list.style.marginLeft = '-' + 340 * l + 'px';
+  } else {
+    l = 0;
+  }
+
+  // right btn when the move end display none
+  if (l == 0) document.querySelector('.slider_left').style.display = 'none';
+  if (l < related_prodacts_list.children.length - 3) {
+    document.querySelector('.slider_right').style.display = 'flex';
+  } else if (l < related_prodacts_list.children.length - 2) {
+    document.querySelector('.slider_right').style.display = 'flex';
+  } else if (l < related_prodacts_list.children.length - 1) {
+    document.querySelector('.slider_right').style.display = 'flex';
+  }
+}
+
+if (l == 0) document.querySelector('.slider_left').style.display = 'none';
+
+// right click btn to move slider of body
+function right_click_slider(e) {
+  if (related_products_slider_container.clientWidth == 650) {
+    //   in small size of screen
+    if (l !== related_prodacts_list.children.length - 2) {
+      l++;
+      document.querySelector('.slider_left').style.display = 'flex';
+
+      related_prodacts_list.style.marginLeft = '-' + 340 * l + 'px';
+    }
+    if (l == related_prodacts_list.children.length - 2) {
+      e.currentTarget.style.display = 'none';
+    }
+  } else if (related_products_slider_container.clientWidth == 340) {
+    //  in medium size of screen
+    if (l !== related_prodacts_list.children.length - 1) {
+      l++;
+      document.querySelector('.slider_left').style.display = 'flex';
+
+      related_prodacts_list.style.marginLeft = '-' + 340 * l + 'px';
+    }
+    if (l == related_prodacts_list.children.length - 1) {
+      e.currentTarget.style.display = 'none';
+    }
+  } else {
+    // in desctop screen size
+    if (l !== related_prodacts_list.children.length - 3) {
+      l++;
+      document.querySelector('.slider_left').style.display = 'flex';
+
+      related_prodacts_list.style.marginLeft = '-' + 340 * l + 'px';
+    }
+    if (l == related_prodacts_list.children.length - 3) {
+      e.currentTarget.style.display = 'none';
+    }
+  }
+}
+
+function tah(e) {
+  if (document.querySelector('.hususiyati_btn') !== null)
+    document
+      .querySelector('.hususiyati_btn')
+      .classList.remove('hususiyati_btn');
+  e.currentTarget.classList.add('hususiyati_btn');
+  document.querySelector('.tahlil').style.display = 'none';
+  document.querySelector('.tex').style.display = 'block';
+}
+document.querySelector('.hususiyati1').classList.add('hususiyati_btn');
+
+function tex(e) {
+  if (document.querySelector('.hususiyati_btn') !== null)
+    document
+      .querySelector('.hususiyati_btn')
+      .classList.remove('hususiyati_btn');
+  e.currentTarget.classList.add('hususiyati_btn');
+  document.querySelector('.tahlil').style.display = 'block';
+  document.querySelector('.tex').style.display = 'none';
+}
